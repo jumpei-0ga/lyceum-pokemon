@@ -3,6 +3,7 @@ import {
   GetObjectCommand,
   PutObjectCommand,
   S3Client,
+  DeleteObjectCommand,
 } from "@aws-sdk/client-s3";
 import { NodeHttpHandler } from "@aws-sdk/node-http-handler";
 import { ProxyAgent } from "proxy-agent";
@@ -55,4 +56,12 @@ export const upsertTrainer = async (name, trainer) => {
 };
 
 /** トレーナーの削除 */
-// TODO: トレーナーを削除する S3 クライアント処理の実装
+export const deleteTrainer = async (name) => {
+  const result = await s3Client.send(
+    new DeleteObjectCommand({
+      Bucket: config.bucketName,
+      Key: `${name}.json`,
+    }),
+  );
+  return result;
+};

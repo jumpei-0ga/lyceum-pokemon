@@ -10,7 +10,7 @@ defineProps({
 <template>
   <NuxtLink :to="to" class="catch-button">
     <div class="catch-button__content">
-      <img class="pokemon-ball" src="/pokemon_ball.svg" alt="ポケモンボール" />
+      <img class="pokemon-ball" src="/public/pokemon_ball.svg" alt="ポケモンボール" />
       <slot />
     </div>
   </NuxtLink>
