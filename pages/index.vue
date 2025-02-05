@@ -5,7 +5,7 @@
     <h1>ポケットモンスター</h1>
     <GamifyList>
       <GamifyItem>
-        <NuxtLink to="/trainer">つづきからはじめる</NuxtLink>
+        <NuxtLink to="/trainers">つづきからはじめる</NuxtLink>
       </GamifyItem>
       <GamifyItem>
         <NuxtLink to="/new">あたらしくはじめる</NuxtLink>
