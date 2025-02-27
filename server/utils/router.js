@@ -79,7 +79,9 @@ router.post("/trainer/:trainerName/pokemon", async (req, res, next) => {
     // TODO: リクエストボディにポケモン名が含まれていなければ400を返す
     const pokemon = await findPokemon(req.body.name);
     // TODO: 削除系 API エンドポイントを利用しないかぎりポケモンは保持する
-    const result = await upsertTrainer(trainerName, { pokemons: [pokemon] });
+    const trainer = await findTrainer(trainerName);
+    const pokemons = [...trainer.pokemons, pokemon];
+    const result = await upsertTrainer(trainerName, { pokemons: [pokemons] });
     res.status(result["$metadata"].httpStatusCode).send(result);
   } catch (err) {
     next(err);
